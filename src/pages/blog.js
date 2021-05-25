@@ -54,6 +54,11 @@ export const pageQuery = graphql`
               html
             }
           }
+          body {
+            childMarkdownRemark {
+              excerpt(pruneLength: 80, truncate: true)
+            }
+          }
         }
       }
     }
