@@ -27,7 +27,7 @@ const SearchPage = ({ data, location }) => {
 
         if (isTagQuery) {
           const tagQuery = searchQuery.slice(1)
-          const hasTag = tags.some((tag) => tag === tagQuery)
+          const hasTag = tags?.some((tag) => tag === tagQuery)
           return hasTag
         }
 

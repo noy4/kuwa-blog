@@ -36,11 +36,12 @@ const ArticlePreview = ({ article }) => (
           }}
         />
       )}
-      <br />
-      {article.tags.map((tag) => (
+      {/* <br /> */}
+      {article.tags && <br />}
+      {article.tags?.map((tag) => (
         <Link
           to={`/search?tag=${tag}`}
-          tw="text-blue-500 block hover:underline"
+          tw="text-blue-500 mr-2 hover:underline"
           key={tag}
         >
           #{tag}
