@@ -3,6 +3,7 @@ import Img from 'gatsby-image'
 import 'twin.macro'
 import { StaticImage } from 'gatsby-plugin-image'
 import { BadgeCheckIcon } from '@heroicons/react/solid'
+import { Link } from 'gatsby'
 
 const ArticlePreview = ({ article }) => (
   <div tw="flex px-4 py-3 hover:bg-gray-100 transition-all">
@@ -21,14 +22,14 @@ const ArticlePreview = ({ article }) => (
       </div>
       <div tw="mt-1 mb-2 text-xs">{article.publishDate}</div>
       {article.description ? (
-        <p
+        <div
           tw="text-sm"
           dangerouslySetInnerHTML={{
             __html: article.description.childMarkdownRemark.html,
           }}
         />
       ) : (
-        <p
+        <div
           tw="text-sm"
           dangerouslySetInnerHTML={{
             __html: article.body.childMarkdownRemark.excerpt,
@@ -37,9 +38,13 @@ const ArticlePreview = ({ article }) => (
       )}
       <br />
       {article.tags.map((tag) => (
-        <div tw="text-blue-500" key={tag}>
+        <Link
+          to={`/search?tag=${tag}`}
+          tw="text-blue-500 block hover:underline"
+          key={tag}
+        >
           #{tag}
-        </div>
+        </Link>
       ))}
       {article.heroImage && (
         <Img

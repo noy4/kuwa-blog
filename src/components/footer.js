@@ -21,7 +21,9 @@ const Footer = ({ location: { pathname } }) => {
         </Link>
       )}
       {pathname === '/search' ? (
-        <SearchSolid tw="w-8 h-8 text-blue-500" />
+        <Link to="/search">
+          <SearchSolid tw="w-8 h-8 text-blue-500" />
+        </Link>
       ) : (
         <Link to="/search">
           <SearchIcon tw="w-8 h-8 text-gray-400" />
